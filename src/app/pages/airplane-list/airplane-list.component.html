@@ -1,0 +1,49 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Lista de Aviones</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Gestión de Flota</ion-card-title>
+      <p class="ion-padding-top">Gestiona la flota de aviones disponibles</p>
+    </ion-card-header>
+
+    <ion-card-content>
+      @if (airplanes.length === 0) {
+      <div class="ion-text-center ion-padding">
+        <p>No hay aviones registrados</p>
+      </div>
+      } @else if (airplanes.length > 0) {
+      <div class="table-container">
+        <table class="ion-table">
+          <thead>
+            <tr>
+              @for (header of tableHeaders; track header.key) {
+              <th>{{ header.label }}</th>
+              }
+              <th>Acciones</th>
+            </tr>
+          </thead>
+          <tbody>
+            @for (airplane of airplanes; track airplane.id) {
+            <tr>
+              <td>{{ airplane.id }}</td>
+              <td>{{ airplane.model }}</td>
+              <td>{{ airplane.capacity }} pasajeros</td>
+              <td>
+                <ion-button fill="clear" size="small">
+                  <ion-icon slot="icon-only" [icon]="pencilIcon"></ion-icon>
+                </ion-button>
+              </td>
+            </tr>
+            }
+          </tbody>
+        </table>
+      </div>
+      }
+    </ion-card-content>
+  </ion-card>
+</ion-content>
