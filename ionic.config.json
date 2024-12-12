@@ -1,0 +1,7 @@
+{
+  "name": "ionic-airplanes-mobile-client",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular-standalone"
+}
